@@ -137,7 +137,9 @@ def upload(config, args):
         print("No date specified", file=sys.stderr)
         sys.exit(1)
 
+    print(args.upload_date)
     d = dateutil.parser.parse(args.upload_date).date()
+    print(d)
 
     print("Uploading data for %s" % d)
 
