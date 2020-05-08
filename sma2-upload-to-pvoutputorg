@@ -21,7 +21,7 @@ import argparse
 import datetime
 import sys
 
-import smadata2.protocol
+#import smadata2.protocol
 import smadata2.config
 import smadata2.db
 import smadata2.pvoutputuploader
