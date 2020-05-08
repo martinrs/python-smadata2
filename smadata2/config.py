@@ -39,7 +39,7 @@ class SMAData2InverterConfig(object):
         if "start-time" in invjson:
             self.starttime = datetimeutil.parse_time(invjson["start-time"])
         else:
-            self.starttime = None
+            self.starttime = 0
 
     def connect(self):
         return smabluetooth.Connection(self.bdaddr)
