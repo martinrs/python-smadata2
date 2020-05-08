@@ -51,7 +51,7 @@ def prepare_data_for_date(date, data, tz):
 
 
 def load_data_for_date(db, sc, date):
-    ts_start, ts_end = datetimeutil.day_timestamps(date, sc.timezone())
+    ts_start, ts_end = datetimeutil.day_timestamps(date, dateutil.tz.tzutc())
 
     ids = [i.serial for i in sc.inverters()]
 
