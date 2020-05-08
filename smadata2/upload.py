@@ -56,7 +56,7 @@ def load_data_for_date(db, sc, date):
     ids = [i.serial for i in sc.inverters()]
 
     results = db.get_aggregate_samples(ts_start, ts_end, ids)
-    return prepare_data_for_date(date, results, sc.timezone
+    return prepare_data_for_date(date, results, sc.timezone)
 
 
 def upload_date(db, sc, date):
