@@ -50,13 +50,14 @@ def prepare_data_for_date(date, data, tz):
     return output
 
 
+#python3 sma2mon upload --date 2020-5-8
 def load_data_for_date(db, sc, date):
-    ts_start, ts_end = datetimeutil.day_timestamps(date, sc.timezone)
+    ts_start, ts_end = datetimeutil.day_timestamps(date, sc.timezone())
 
     ids = [i.serial for i in sc.inverters()]
 
     results = db.get_aggregate_samples(ts_start, ts_end, ids)
-    return prepare_data_for_date(date, results, sc.timezone)
+    return prepare_data_for_date(date, results, sc.timezone())
 
 
 def upload_date(db, sc, date):
