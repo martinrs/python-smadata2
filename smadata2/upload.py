@@ -18,7 +18,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import datetime
+import datetime, time
 from . import datetimeutil
 
 
@@ -42,7 +42,7 @@ def prepare_data_for_date(date, data, tz):
             break
 
     # Now convert the timestamps to datetime objects
-    output = [(datetime.datetime.fromtimestamp(ts, tz), y) for ts, y in data]
+    output = [(datetime.datetime.fromtimestamp(ts), y) for ts, y in data]
 
     # Sanity check
     assert all(dt.date() == date for dt, y in output)
@@ -51,12 +51,12 @@ def prepare_data_for_date(date, data, tz):
 
 
 def load_data_for_date(db, sc, date):
-    ts_start, ts_end = datetimeutil.day_timestamps(date, sc.timezone())
+    ts_start, ts_end = datetimeutil.day_timestamps(date, time.timezone)
 
     ids = [i.serial for i in sc.inverters()]
 
     results = db.get_aggregate_samples(ts_start, ts_end, ids)
-    return prepare_data_for_date(date, results, sc.timezone())
+    return prepare_data_for_date(date, results, time.timezone)
 
 
 def upload_date(db, sc, date):
