@@ -64,4 +64,4 @@ def upload_date(db, sc, date):
     data = load_data_for_date(db, sc, date)
 
     for ts, y in data:
-        print("%s: %d Wh" % (datetimeutil.format_time(ts), y))
+        print("%s: %d Wh" % (ts, y))
