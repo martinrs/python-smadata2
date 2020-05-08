@@ -102,7 +102,7 @@ def download(config, args):
                 else:
                     print("No new daily data")
             except Exception as e:
-                print("ERROR downloading inverter: %s" % e.with_traceback, file=sys.stderr)
+                print("ERROR downloading inverter: %s" % e, file=sys.stderr)
 
 
 def settime(config, args):

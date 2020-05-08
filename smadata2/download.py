@@ -26,6 +26,7 @@ def download_type(ic, db, sample_type, data_fn):
     lasttime = db.get_last_sample(ic.serial, sample_type)
     if lasttime is None:
         lasttime = ic.starttime
+    print(lasttime)
 
     now = int(time.time())
 
